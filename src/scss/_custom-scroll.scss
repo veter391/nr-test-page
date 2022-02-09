@@ -1,0 +1,23 @@
+/*Убрать полосу прокрутки для всей страницы*/
+*::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background:linear-gradient(180deg , $square , transparent);
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  background-color: transparent;
+}

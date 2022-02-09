@@ -1,0 +1,16 @@
+section.section.contact#contact
+  svg.contact__top-ico(aria-hidden="true")
+    use(xlink:href="@img/sprite.svg#top")
+  h2.title
+    span.title__text.anim-item.anim-no-hide Contact
+  .cnt.contact__cnt.anim-item.anim-no-hide
+    h3.subtitle.contact__subtitle Have a question or want to work together?
+    .contact__form-cnt
+      form.contact__form#form(action="https://jsonplaceholder.typicode.com/posts" method="POST")
+        label.contact__label
+          input.contact__input#name(name="name" type="text" placeholder="Name")
+        label.contact__label
+          input.contact__input#email(name="email" type="email" placeholder="E-mail")
+        label.contact__label
+          textarea.contact__textarea#message(name="message" placeholder="Your Message")
+        button.contact__btn(type="submit") Submit

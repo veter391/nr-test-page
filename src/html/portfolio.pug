@@ -1,0 +1,100 @@
+section.section.portfolio#portfolio
+  h2.title
+    span.title__text.anim-item.anim-no-hide Portfolio
+  .cnt.portfolio__cnt
+    ul.portfolio__list
+      li.portfolio__item
+        button(data-filter="all").portfolio__btn.active All
+      li.portfolio__item
+        button(data-filter="web").portfolio__btn Web
+      li.portfolio__item
+        button(data-filter="js").portfolio__btn Js
+      li.portfolio__item
+        button(data-filter="php").portfolio__btn Php
+      li.portfolio__item
+        button(data-filter="python").portfolio__btn Python
+    .portfolio__projects.anim-item.anim-no-hide
+      .portfolio__projectBox(data-item="web")
+        img.lazy.portfolio__projectBox-img(data-src="@img/pr8.jpg", alt="проект")
+        .portfolio__projectBox-info
+          h3.subtitle Primary Project
+          p.portfolio__projectBox-text Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime eaque et assumenda ex odio earum?
+          button.portfolio__projectBox-btn Learn more
+      .portfolio__projectBox(data-item="web")
+        img.lazy.portfolio__projectBox-img(data-src="@img/pr6.jpg", alt="проект")
+        .portfolio__projectBox-info
+          h3.subtitle SVG Project
+          p.portfolio__projectBox-text Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime eaque et assumenda ex odio earum?
+          button.portfolio__projectBox-btn Learn more
+      .portfolio__projectBox(data-item="web")
+        img.lazy.portfolio__projectBox-img(data-src="@img/pr5.jpg", alt="проект")
+        .portfolio__projectBox-info
+          h3.subtitle Lagoona
+          p.portfolio__projectBox-text Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime eaque et assumenda ex odio earum?
+          button.portfolio__projectBox-btn Learn more
+      .portfolio__projectBox(data-item="js web")
+        img.lazy.portfolio__projectBox-img(data-src="@img/pr3.jpg", alt="проект")
+        .portfolio__projectBox-info
+          h3.subtitle Eukling
+          p.portfolio__projectBox-text Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime eaque et assumenda ex odio earum?
+          button.portfolio__projectBox-btn Learn more
+      .portfolio__projectBox(data-item="js web php")
+        img.lazy.portfolio__projectBox-img(data-src="@img/pr2.jpg", alt="проект")
+        .portfolio__projectBox-info
+          h3.subtitle Blanchard
+          p.portfolio__projectBox-text Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime eaque et assumenda ex odio earum?
+          button.portfolio__projectBox-btn Learn more
+      .portfolio__projectBox(data-item="js web")
+        img.lazy.portfolio__projectBox-img(data-src="@img/pr1.jpg", alt="проект")
+        .portfolio__projectBox-info
+          h3.subtitle PhotoStudi
+          p.portfolio__projectBox-text Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime eaque et assumenda ex odio earum?
+          button.portfolio__projectBox-btn Learn more
+      .portfolio__projectBox(data-item="js web")
+        img.lazy.portfolio__projectBox-img(data-src="@img/pr4.jpg", alt="проект")
+        .portfolio__projectBox-info
+          h3.subtitle HighPass
+          p.portfolio__projectBox-text Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime eaque et assumenda ex odio earum?
+          button.portfolio__projectBox-btn Learn more
+      .portfolio__projectBox(data-item="web php js")
+        img.lazy.portfolio__projectBox-img(data-src="@img/pr7.jpg", alt="проект")
+        .portfolio__projectBox-info
+          h3.subtitle SitDownPls
+          p.portfolio__projectBox-text Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime eaque et assumenda ex odio earum?
+          button.portfolio__projectBox-btn Learn more
+      // if not projects
+      .portfolio__projectBox-not
+        .portfolio__projectBox-not-cnt
+          img.lazy.portfolio__projectBox-not-img(data-src="@img/no-projects.jpg", alt="картинка")
+          span.portfolio__projectBox-not-text Projects under development
+          span.portfolio__projectBox-not-text Sorry :(
+  .portfolio__modal
+    .portfolio__modal-cnt
+      .swiper.portfolio__swiper
+        .swiper-wrapper.portfolio__wrapper
+          img.lazy.swiper-slide.portfolio__slide(data-src="@img/pr6.jpg", alt="проект")
+          img.lazy.swiper-slide.portfolio__slide(data-src="@img/pr7.jpg", alt="проект")
+          img.lazy.swiper-slide.portfolio__slide(data-src="@img/pr8.jpg", alt="проект")
+        .swiper-pagination.portfolio__pagination
+        button.swiper-button-prev.portfolio__btn-prev(aria-label="prev slide")
+          svg.portfolio__btn-ico(aria-hidden="true")
+            use(xlink:href="@img/sprite.svg#arrowSlideLeft")
+        button.swiper-button-next.portfolio__btn-next(aria-label="next slide")
+          svg.portfolio__btn-ico(aria-hidden="true")
+            use(xlink:href="@img/sprite.svg#arrowSlideRight")
+        .portfolio__modal-info
+          .eye
+            svg.eye-ico(aria-hidden="true")
+              use(xlink:href="@img/sprite.svg#eye")
+            span.eye-counter 0
+          button.heart
+            svg.heart-ico(aria-hidden="true")
+              use(xlink:href="@img/sprite.svg#heart")
+      .portfolio__modal-textBox
+        h3.subtitle Blanchard
+        span.portfolio__modal-text experience gained
+        p.portfolio__modal-description Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non quo, accusantium amet dignissimos quae beatae fugit est inventore quod eaque maiores, ab magnam consequatur ea voluptatem? Voluptas vero, natus ea quam nobis excepturi odit maiores ducimus qui omnis nulla sunt in? Molestias sit temporibus recusandae modi quisquam quis cum fugit amet sunt perferendis facere suscipit accusantium, totam tempora aliquam doloremque maxime expedita eos ut sint labore dolores cumque quas. Mollitia ratione est fuga, ad asperiores fugiat doloribus esse eos totam facilis natus ab blanditiis pariatur voluptate saepe itaque sequi error impedit accusantium amet, exercitationem quisquam? Non suscipit soluta alias?
+        .portfolio__modal-btnBox
+          button.portfolio__modal-btn  Download ZIP
+          button.portfolio__modal-btn  view Only
+      button.portfolio__modal-cancel(aria-label="close modal window")

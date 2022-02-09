@@ -1,0 +1,75 @@
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: grid;
+  grid-template-columns: minmax(32px,1fr) minmax(auto,1720px) minmax(32px,1fr);
+  grid-template-rows: 1fr auto;
+  height: 55px;
+  width: 100%;
+  background-color: #1D1F2A;
+  z-index: 5;
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__item{
+   padding: 0 20px;
+  }
+  &__link {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    transition-property: color , opacity;
+    transition-duration: .3s;
+    transition-timing-function: ease-in-out;
+    overflow: hidden;
+    &.active {
+      color: $gre-light;
+    }
+    &::after {
+      display: block;
+      content: "";
+      height: 2px;
+      width: 100%;
+      border-radius: 5px;
+      transition: transform .4s ease;
+      background: $gre-light;
+      opacity: .9;
+      transform-origin: 100% 0;
+      transform: scaleX(0);
+    }
+    &:hover , &.focus-visible{
+      color: $gre-light;
+      &::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+    &:active{
+      color: $gre-light;
+      opacity: 0.7;
+    }
+  }
+  &:hover {
+    .nav__coloring {
+      animation-play-state: running;
+    }
+  }
+  &__coloring {
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+    align-self: end;
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(120deg, #ff2400, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #e81d1d, #dd00f3);
+    background-size: 1800% 1800%;
+    animation: coloring 18s ease infinite paused;
+  }
+}

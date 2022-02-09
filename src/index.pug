@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description" content="Author: Nazar Shypot , this page was created to practice skills in design and programming")
+    link(rel="shortcut icon" type="image/png" href="img/favicon.png" sizes="180x180")
+    meta(name="theme-color" content="#444444")
+    title NR Test Page
+    //- fonts
+    link(rel="preload" href="fonts/Raleway-Regular.woff2" as="font" type="font/woff2" crossorigin)
+    link(rel="preload" href="fonts/Raleway-Medium.woff2" as="font" type="font/woff2" crossorigin)
+    link(rel="preload" href="fonts/Raleway-SemiBold.woff2" as="font" type="font/woff2" crossorigin)
+    link(rel="preload" href="fonts/Raleway-Bold.woff2" as="font" type="font/woff2" crossorigin)
+    //- styles
+    link(rel="stylesheet", href="css/style.min.css")
+    //- scripts
+    script(deffer src="js/script.min.js")
+  body
+    div.wrapper
+      include html/header
+      include html/nav
+      main.page
+        include html/about
+        include html/portfolio
+        include html/contact
+      include html/footer

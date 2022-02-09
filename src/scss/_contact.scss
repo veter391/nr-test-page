@@ -1,0 +1,122 @@
+.contact {
+  grid-template-rows: auto 1fr;
+  padding: 0;
+  &__top-ico {
+    grid-column: 1 / 4;
+    width: 100%;
+    height: 70px;
+    margin-bottom: 50px;
+  }
+  .title {
+    margin-bottom: 50px;
+    &__text {
+      border-color: $yellow-dark;
+    }
+    &::after {
+      background-color: $yellow-dark;
+    }
+  }
+  &__cnt{
+    background: url(../img/circles.svg) 0% 0% no-repeat, url(../img/circles.svg) 100% 0% no-repeat;
+    background-size: 290px , 290px;
+    &._active {
+      .contact__form , .contact__subtitle{
+        transform: none;
+        opacity: 1;
+      }
+    }
+  }
+  &__form-cnt {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: minmax(auto,500px)
+  }
+  &__subtitle {
+    margin-bottom: 32px;
+    font-size: 20px;
+    text-align: center;
+    color: $title;
+    transition-delay: .4s;
+  }
+  &__subtitle , &__form {
+    transform: scale(0);
+    opacity: 0;
+    transition-property: opacity , transform;
+    transition-duration: .6s;
+    transition-timing-function: ease;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-origin: left top;
+    transition-delay: .5s;
+  }
+  &__label {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  &__input, &__textarea{
+    width: 100%;
+    padding: 0 20px;
+    border-radius: 3px;
+    border-right: 3px solid transparent;
+    border-left: 3px solid transparent;
+    border-top: none;
+    border-bottom:none;
+    background-color: $dark-blue;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    &::placeholder{
+      color:#cdcdcd;
+    }
+  }
+  &__input {
+    height: 50px;
+    line-height: 45px;
+  }
+  &__textarea{
+    height: 200px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    line-height: 18px;
+    resize: none;
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+  }
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px;
+    min-width: 150px;
+    padding: 10px;
+    border: 2px solid $title;
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-align: center;
+    color: $title;
+    transition-property: color , background , border;
+    transition-duration: .3s;
+    transition-timing-function: ease;
+    &:hover , &.focus-visible {
+      background-color: $title;
+      color: white;
+    }
+    &:active {
+      background-color: $dark-title;
+      border-color: $dark-title;
+    }
+  }
+}
+
+.is-invalid {
+  border-color: #DF3600;
+}

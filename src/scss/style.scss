@@ -1,0 +1,515 @@
+@import '../../node_modules/normalize.css/normalize';
+@import '../../node_modules/swiper/swiper-bundle';
+@import 'fonts';
+@import 'mixins';
+
+
+// colors variables
+// primary colors
+$triangle :#0DC620;
+$circle   :yellow;
+$square   :#DF3600;
+
+$gre-light:#00FA91;
+$bacground:#f2f2f2;
+
+// experience colors
+$ex-xgood:#5DF0BB;
+$ex-good:#5DD6F0;
+$ex-medium:#5D98F0;
+$ex-low:#E2F767;
+
+// secondari colors
+$dark-blue:#1D1F2A;
+$title: #4E5A86;
+$light-red:#FA0069;
+$yellow-dark:#C8D815;
+$dark-title:#30395e;
+
+// projects variables
+$project-gap:3px;
+$project-height:300px;
+$project-childs:8;
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;    /* чтобы padding не влиял на внешний вид */
+          overflow: overlay;          // for custom scroll
+}
+*,*::before,*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;    /* 	Значение наследуется от родительского элемента. */
+}
+body {
+  font-family: 'Raleway',Arial, sans-serif;  /* в "" свой шрифт под проект*/
+  line-height: 1;          /* пространствo между строками в тексте. */
+  color: white;           /* цвет текста который больше всего используется на странице */
+  background-color: $bacground;                  /* под проект - цвет фона страницы */
+  overflow: overlay;        // for custom scroll
+}
+button,input {
+  font: inherit;   /* используются когда font или font-family не наследуется по умолчанию */
+  outline: none;
+}
+button {
+  cursor: pointer;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+a {
+  text-decoration: none;   /* сброс стилей для ссылок */
+  color: inherit;
+  outline: none;
+}
+// #preloader_preload{
+//   display: block;
+//   position: fixed;
+//   z-index: 300;
+//   top: 0;left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: #9B59B6 url(img/rings.svg) center center no-repeat;
+//   background-size:124px;}
+.visually-hidden
+{
+  /* visually-hidden для скрытия заголовков */
+  position: absolute !important; /* Указывает, что элемент абсолютно позиционирован */
+  overflow: hidden;              /* Отображается только область внутри элемента, остальное будет скрыто. */
+  clip: rect(1px 1px 1px 1px);   /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);/* определяет область позиционированного элемента, в которой будет показано его содержимое. */
+  width: 1px !important;
+  height: 1px !important;        /* !important - для подключения собственной таблицы стилей */
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+// my wrapper
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+  min-width: 320px;
+  // overflow: hidden; // если используете на сайте position: sticky - уберите эту настройку
+}
+
+// outline none for focus-visible
+.js-focus-visible:focus:not(.focus-visible) {
+  outline: none;
+}
+
+// haeder animation
+@include animations;
+@include headerAnimationBlock;
+
+// container
+.container , .section {
+  display: grid;
+  grid-template-columns: minmax(32px,1fr) minmax(auto,1720px) minmax(32px,1fr);
+  height: fit-content;
+  width: 100%;
+}
+.section {
+  padding-top: 70px;
+  margin-bottom: 70px;
+  overflow: hidden;
+}
+.cnt {
+  grid-column: 2 / 3;
+}
+.title {
+  position: relative;
+  grid-column: 1 / 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 62px;
+  margin: 0;
+  text-align: center;
+  overflow: hidden;
+  &__text {
+    min-width: 400px;
+    padding: 0 10px;
+    border: 3px solid $gre-light;
+    background-color: $bacground;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 56px;
+    letter-spacing: 0.12em;
+    text-align: center;
+    color: $title;
+    z-index: 1;
+    transform: translateX(200%);
+    opacity: 0;
+    transition-property: transform , opacity;
+    transition-duration: .5s;
+    transition-timing-function: ease;
+    transition-delay: .2s;
+    &._active {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  &::after {
+    position: absolute;
+    display: block;
+    content: '';
+    height: 4px;
+    width: 100%;
+    top: calc(50% - 2px);
+    left: 0;
+    background-color: $gre-light;
+  }
+}
+.subtitle {
+  word-break: break-word;
+  max-height: 48px;
+  -webkit-line-clamp: 2; /* Число отображаемых строк */
+  display: -webkit-box; /* Включаем флексбоксы */
+  -webkit-box-orient: vertical; /* Вертикальная ориентация */
+  overflow: hidden;
+  margin: 0;
+  margin-bottom: 5px;
+  line-height: 24px;
+  font-size: 24px;
+}
+.description {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+// cursor
+.cursor {
+	position: fixed;
+	width: 40px;
+	height: 40px;
+	margin: -20px 0 0 -20px;
+	border-radius: 50%;
+	background: #ef2c68;
+	animation: heartClicker .2s ease;
+  z-index: 11;
+}
+.heart {
+  padding: 0;
+  border: none;
+  height: 30px - 8px;
+  width: 33px - 8px;
+  background-color: transparent;
+  &-ico {
+    fill: none;
+    height: 100%;
+    width: 100%;
+    transition: transform .3s ease;
+  }
+  &.active {
+    .heart-ico {
+      fill: $light-red;
+      animation: heartisActive .5s ease infinite;
+    }
+  }
+  &:hover:not(.active) , &.focus-visible:not(.active) {
+    .heart-ico{
+      transform: scale(1.15);
+    }
+  }
+}
+.eye {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  &-ico {
+    width: 24px;
+    height: 20px;
+    fill: $title;
+    margin-right: 3px;
+  }
+  &-counter {
+    font-size: 18px;
+    font-weight: 600;
+    color: $title;
+    user-select: none;
+  }
+}
+
+// sections
+@import 'header';
+@import 'nav';
+@import 'about';
+@import 'portfolio';
+@import 'contact';
+@import 'footer';
+
+// scroll
+@import 'custom-scroll';
+
+
+@media (max-width:1540px) {
+  .about__cnt{
+    background:none;
+  }
+}
+@media (max-width:1024px) {
+  .about__cnt{
+    grid-column-gap: 30px;
+  }
+  .header__title-box {
+    font-size: 44px;
+    line-height: 50px;
+  }
+  .header__description {
+    font-size: 20px;
+  }
+  .header__btn,.about__info-text {
+    font-size: 16px;
+  }
+  .subtitle{
+    font-size: 22px;
+  }
+  .description{
+    font-size: 14px;
+  }
+  .title__text {
+    font-size: 30px;
+  }
+}
+
+@media (max-width:860px) {
+  .about__cnt{
+    grid-template-columns: 1fr minmax(auto, 796px) 1fr;
+    grid-row-gap: 50px;
+    padding-top: 30px;
+    grid-column-gap: 0px;
+  }
+  .about__info {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    max-width: 100%;
+  }
+  .section {
+    padding-top: 50px;
+    margin-bottom:50px;
+  }
+  .portfolio{
+    margin-bottom: 0;
+  }
+  .footer__container {
+    grid-template-columns: minmax(32px, 1fr) minmax(auto, 796px) minmax(32px, 1fr);
+    grid-row-gap: 20px;
+  }
+  .social {
+    grid-column: 2/3;
+  }
+  .social__item {
+    margin-bottom: 15px;
+  }
+  .contact {
+    padding-top: 0;
+  }
+  .about__list{
+    grid-row: 2/3;
+    max-width: 100%;
+  }
+  .about__item {
+    max-width: 100%;
+    height: 24px;
+  }
+  .about__subtitle{
+    line-height: 24px;
+    font-size: 14px;
+  }
+  .about__benefits{
+    grid-row: 3/4;
+  }
+  .portfolio__projects {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .portfolio__btn {
+    font-size: 16px;
+  }
+  .portfolio__list {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+  }
+  .portfolio__item:not(:last-child) {
+    margin: 0px;
+  }
+  .portfolio__item{
+    margin-bottom: 10px !important;
+  }
+  .about__benefits {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    grid-gap: 0;
+  }
+  .about__benefits-item {
+    margin-bottom: 20px;
+  }
+  .portfolio__modal-cnt{
+    max-width: 600px;
+    min-height: auto;
+  }
+  .portfolio__slide{
+    height: 350px;
+  }
+}
+
+@media (max-width:630px) {
+  .contact__cnt,.portfolio__cnt{
+    background:none;
+  }
+  .title__text {
+    min-width: 250px;
+  }
+  .header__title-box {
+    font-size: 30px;
+    line-height: 34px;
+  }
+  .header__description {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  .header__btn,.about__info-text {
+    font-size: 14px;
+  }
+  .subtitle{
+    font-size: 20px;
+  }
+  .social__item:not(:last-child){
+    margin-right: 15px;
+  }
+  .social__link{
+    width: 40px;
+    height: 40px;
+    border:none;
+  }
+  .social {
+    padding-top: 15px;
+    border-top: 2px solid #C8D815;
+  }
+  .title__text {
+    font-size: 24px;
+  }
+  .portfolio__cnt {
+    padding-top: 30px;
+  }
+  .nav__link{
+    font-size: 16px;
+  }
+  .header__btn-container {
+    flex-direction: column;
+  }
+  .header__btn:not(:last-child){
+    margin: 0;
+    margin-bottom: 15px;
+  }
+  .header__btn {
+    min-width: 160px;
+  }
+  .about__benefits-text {
+    max-width: 180px;
+  }
+  .nav__item {
+    padding: 0 10px;
+  }
+  .portfolio__modal-cnt{
+    max-width: 400px;
+  }
+  .portfolio__slide{
+    height: 250px;
+  }
+  .portfolio__modal-description{
+    font-size: 14px;
+  }
+  .portfolio__modal-textBox {
+    padding: 15px;
+  }
+  .portfolio__modal {
+    padding: 25px 0;
+  }
+  .portfolio__modal-cancel,.portfolio__btn-prev,.portfolio__btn-next {
+    height: 30px;
+    width: 30px;
+  }
+  .portfolio__modal-btn {
+    font-size: 16px;
+  }
+  .portfolio__modal-btn:not(:last-child) {
+    margin: 0;
+    margin-bottom: 15px;
+  }
+  .portfolio__modal-btnBox {
+    flex-direction: column;
+  }
+  .portfolio__modal {
+    min-width: 320px;
+  }
+  .set2,.set3 {
+    display: none;
+  }
+}
+
+@media (max-width:450px) {
+  .header__title-box {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .header__description {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+  .header__btn,.about__info-text {
+    font-size: 12px;
+  }
+  .subtitle{
+    font-size: 18px;
+  }
+  .title__text {
+    font-size: 22px;
+  }
+  .nav__link{
+    font-size: 14px;
+  }
+  .nav__item {
+    padding: 0;
+  }
+  .nav__item:not(:last-child){
+    margin-right: 10px;
+  }
+  .section,.nav,.header,.footer__container {
+    grid-template-columns: minmax(15px, 1fr) minmax(auto, 410px) minmax(15px, 1fr);
+  }
+  .portfolio__projects{
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  }
+  .about__benefits-text {
+    max-width: 140px;
+    font-size: 12px;
+  }
+  .about {
+    margin-bottom: 30px;
+  }
+  .portfolio__modal-cnt{
+    max-width: 300px;
+  }
+  .portfolio__slide{
+    height: 200px;
+  }
+  .portfolio__modal-description{
+    font-size: 14px;
+  }
+  .portfolio__modal-textBox {
+    padding: 15px;
+  }
+  .portfolio__modal {
+    padding: 25px 0;
+  }
+}

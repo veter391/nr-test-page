@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<title>SVG stack preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+
+<!--
+
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as stack SVGs, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-adaptive-dims { width: 70px; height: 44px; }
+	.svg-arrowRight-dims { width: 29px; height: 23px; }
+	.svg-arrowSlideLeft-dims { width: 7px; height: 12px; }
+	.svg-arrowSlideRight-dims { width: 7px; height: 12px; }
+	.svg-arrowsBottom-dims { width: 38px; height: 102px; }
+	.svg-codepen-dims { width: 48px; height: 48px; }
+	.svg-codewars-dims { width: 24px; height: 24px; }
+	.svg-creative-dims { width: 40px; height: 44px; }
+	.svg-eye-dims { width: 24px; height: 24px; }
+	.svg-github-dims { width: 256px; height: 250px; }
+	.svg-heart-dims { width: 27px; height: 24px; }
+	.svg-insta-dims { width: 89.76px; height: 89.76px; }
+	.svg-rocket-dims { width: 44px; height: 44px; }
+	.svg-speed-dims { width: 70px; height: 44px; }
+	.svg-top-dims { width: 100px; height: 102px; }
+</style>
+
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+		<header>
+			<h1>SVG stack preview</h1>
+			<p>This preview features an SVG stack. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-fragment" target="_blank" rel="noopener noreferrer">support SVG fragment identifiers</a> for SVG stacks to work.</li>
+				<li>Support for SVG fragment identifiers hasn't always been that decent. For older browsers you will have to use some prolyfill like <a href="https://github.com/preciousforever/SVG-Stacker/blob/master/fixsvgstack.jquery.js" target="_blank" rel="noopener noreferrer">fixsvgstack.jquery.js</a>.</li>
+			</ul>
+		</header>
+		<section>
+
+<!--
+
+SVG stack
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) to reference certain portions of the
+external sprite. By default, all shapes inside the sprite are hidden by CSS. The `:target` pseudo
+selector is used to show the very shape that is referenced by the fragment identifier.
+
+-->
+
+			<ul>
+
+				<li title="adaptive">
+					<div class="icon-box">
+
+						<!-- adaptive -->
+						<img src="../sprite.svg#adaptive" class="svg-adaptive-dims" alt="adaptive"/>
+
+					</div>
+					<h2>adaptive</h2>
+				</li>
+				<li title="arrowRight">
+					<div class="icon-box">
+
+						<!-- arrowRight -->
+						<img src="../sprite.svg#arrowRight" class="svg-arrowRight-dims" alt="arrowRight"/>
+
+					</div>
+					<h2>arrowRight</h2>
+				</li>
+				<li title="arrowSlideLeft">
+					<div class="icon-box">
+
+						<!-- arrowSlideLeft -->
+						<img src="../sprite.svg#arrowSlideLeft" class="svg-arrowSlideLeft-dims" alt="arrowSlideLeft"/>
+
+					</div>
+					<h2>arrowSlideLeft</h2>
+				</li>
+				<li title="arrowSlideRight">
+					<div class="icon-box">
+
+						<!-- arrowSlideRight -->
+						<img src="../sprite.svg#arrowSlideRight" class="svg-arrowSlideRight-dims" alt="arrowSlideRight"/>
+
+					</div>
+					<h2>arrowSlideRight</h2>
+				</li>
+				<li title="arrowsBottom">
+					<div class="icon-box">
+
+						<!-- arrowsBottom -->
+						<img src="../sprite.svg#arrowsBottom" class="svg-arrowsBottom-dims" alt="arrowsBottom"/>
+
+					</div>
+					<h2>arrowsBottom</h2>
+				</li>
+				<li title="codepen">
+					<div class="icon-box">
+
+						<!-- codepen -->
+						<img src="../sprite.svg#codepen" class="svg-codepen-dims" alt="codepen"/>
+
+					</div>
+					<h2>codepen</h2>
+				</li>
+				<li title="codewars">
+					<div class="icon-box">
+
+						<!-- codewars -->
+						<img src="../sprite.svg#codewars" class="svg-codewars-dims" alt="codewars"/>
+
+					</div>
+					<h2>codewars</h2>
+				</li>
+				<li title="creative">
+					<div class="icon-box">
+
+						<!-- creative -->
+						<img src="../sprite.svg#creative" class="svg-creative-dims" alt="creative"/>
+
+					</div>
+					<h2>creative</h2>
+				</li>
+				<li title="eye">
+					<div class="icon-box">
+
+						<!-- eye -->
+						<img src="../sprite.svg#eye" class="svg-eye-dims" alt="eye"/>
+
+					</div>
+					<h2>eye</h2>
+				</li>
+				<li title="github">
+					<div class="icon-box">
+
+						<!-- github -->
+						<img src="../sprite.svg#github" class="svg-github-dims" alt="github"/>
+
+					</div>
+					<h2>github</h2>
+				</li>
+				<li title="heart">
+					<div class="icon-box">
+
+						<!-- heart -->
+						<img src="../sprite.svg#heart" class="svg-heart-dims" alt="heart"/>
+
+					</div>
+					<h2>heart</h2>
+				</li>
+				<li title="insta">
+					<div class="icon-box">
+
+						<!-- insta -->
+						<img src="../sprite.svg#insta" class="svg-insta-dims" alt="insta"/>
+
+					</div>
+					<h2>insta</h2>
+				</li>
+				<li title="rocket">
+					<div class="icon-box">
+
+						<!-- rocket -->
+						<img src="../sprite.svg#rocket" class="svg-rocket-dims" alt="rocket"/>
+
+					</div>
+					<h2>rocket</h2>
+				</li>
+				<li title="speed">
+					<div class="icon-box">
+
+						<!-- speed -->
+						<img src="../sprite.svg#speed" class="svg-speed-dims" alt="speed"/>
+
+					</div>
+					<h2>speed</h2>
+				</li>
+				<li title="top">
+					<div class="icon-box">
+
+						<!-- top -->
+						<img src="../sprite.svg#top" class="svg-top-dims" alt="top"/>
+
+					</div>
+					<h2>top</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Wed, 09 Feb 2022 14:58:12 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>
