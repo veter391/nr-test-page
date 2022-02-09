@@ -10,6 +10,14 @@ import JustValidate from 'just-validate';
 Swiper.use([Navigation, Pagination]);
 
 window.addEventListener('DOMContentLoaded', function () {
+  const vhCalc = () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+  vhCalc()
+  window.addEventListener('resize', ()=> {
+    vhCalc();
+  });
   // connect lazy load
   new LazyLoad({
     elements_selector: '.lazy' ,
@@ -292,11 +300,12 @@ window.addEventListener('DOMContentLoaded', function () {
         // add class 'active' to link use index from element
         item[i].querySelector('a').classList.add('active');
         if(item[1].querySelector('a').classList.contains('active')){
+          document.querySelector('.about').style.marginTop = `${nav.offsetHeight}px`;
           nav.style.position = 'fixed';
           nav.style.top = '0';
         } else if(item[0].querySelector('a').classList.contains('active')) {
-          nav.style.position = 'absolute';
-          nav.style.top = '100%';
+          document.querySelector('.about').style.marginTop = `0px`;
+          nav.style.position = 'static';
         }
       }
     });

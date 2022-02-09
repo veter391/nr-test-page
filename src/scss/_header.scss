@@ -1,9 +1,9 @@
 // header styles
 .header {
   height: 100vh;
-  min-height: 400px;
+  height: calc(var(--vh) * 100);
+  min-width: 320px;
   margin: 0;
-  margin-bottom: 55px;
   position: relative;
   overflow: hidden;
   background: radial-gradient(#333,#1D1F2A);
