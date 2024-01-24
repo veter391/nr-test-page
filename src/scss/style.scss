@@ -17,7 +17,7 @@ $bacground:#f2f2f2;
 $ex-xgood:#5DF0BB;
 $ex-good:#5DD6F0;
 $ex-medium:#5D98F0;
-$ex-low:#E2F767;
+$ex-low:#f7b967;
 
 // secondari colors
 $dark-blue:#1D1F2A;
@@ -27,7 +27,7 @@ $yellow-dark:#C8D815;
 $dark-title:#30395e;
 
 // projects variables
-$project-gap:3px;
+$project-gap:5px;
 $project-height:300px;
 $project-childs:8;
 
@@ -244,6 +244,11 @@ a {
 @import 'portfolio';
 @import 'contact';
 @import 'footer';
+
+
+.about__info-text {
+  text-align: left;
+}
 
 // scroll
 @import 'custom-scroll';
