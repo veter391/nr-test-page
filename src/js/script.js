@@ -343,8 +343,8 @@ window.addEventListener('DOMContentLoaded', function () {
     // click state
     projects.addEventListener('click' , function(e) {
       if (e.target.classList.contains('portfolio__projectBox-btn')) {
-        document.querySelector('.portfolio__slide').previousElementSibling.setAttribute('data-srcset', e.target.dataset.src);
-        document.querySelector('.portfolio__slide').previousElementSibling.setAttribute('srcset', e.target.dataset.src);
+        document.querySelector('.portfolio__slide').previousElementSibling.setAttribute('data-srcset', e.target.dataset.src.replace(/.\..+/gs, '.webp'));
+        document.querySelector('.portfolio__slide').previousElementSibling.setAttribute('srcset', e.target.dataset.src.replace(/.\..+/gs, '.webp'));
         document.querySelector('.portfolio__slide').dataset.src = e.target.dataset.src;
         document.querySelector('.portfolio__slide').setAttribute('src', e.target.dataset.src);
         document.querySelector('.portfolio__slide').setAttribute('alt', e.target.dataset.alt);
